@@ -17,7 +17,7 @@ class fozzie {
   }
   file { "/data/puppet_apply/fozzie/styx":
     ensure => present,
-    content => "",
+    content => "Come Sail Away\n",
   }
   exec { 'sail':
     command => '/usr/games/sail -s',

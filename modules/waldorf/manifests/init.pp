@@ -16,4 +16,7 @@ class waldorf {
     content => "Waldorf\n",
     notify => Service['nginx'],
   }
+  package { 'sl':
+    ensure => installed,
+  }
 }

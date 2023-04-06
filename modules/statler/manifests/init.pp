@@ -17,4 +17,7 @@ class statler {
     content => "Statler\n",
     notify => Service['nginx'],
   }
+  package { 'sl':
+    ensure => installed,
+  }
 }

@@ -46,6 +46,17 @@ class muppetshow {
     groups  => ['muppets'],
     require => Group['kermit'],
   }
+  group { "gonzo":
+    ensure => present,
+    gid    => 9997,
+  }
+  user { "gonzo":
+    ensure  => present,
+    uid     => 9997,
+    gid     => 9997,
+    groups  => ['muppets'],
+    require => Group['gonzo'],
+  }
   group { "muppets":
     ensure => present,
     gid    => 9998,

@@ -11,4 +11,9 @@ class waldorf {
   service { 'nginx':
     ensure => running,
   }
+  file { "/var/www/html/index.html":
+    ensure => present,
+    content => "Waldorf\n",
+    notify => Service['nginx'],
+  }
 }

@@ -8,11 +8,6 @@ class muppetshow {
   package { 'nginx':
     ensure => installed,
   }
-  file { "/var/www/html/index.html":
-    ensure => present,
-    content => "Muppets\n",
-    notify => Service['nginx'],
-  }
   $the_muppet_show = @(EOF)
     It's the Muppet Show
 
@@ -22,6 +17,17 @@ class muppetshow {
     It's time to put on make up
     It's time to dress up right
     It's time to raise the curtain on the Muppet Show tonight
+
+    Why do we always come here
+    I guess we'll never know
+    It's like a kind of torture
+    To have to watch the show
+
+    But now let's get things started
+    Why don't you get things started
+    It's time to get things started
+    On the most sensational, inspirational, celebrational, muppetational
+    This is what we call the Muppet Show
     | EOF
 
   file { "/data/puppet_apply/the_muppet_show":

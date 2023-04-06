@@ -8,6 +8,10 @@ class fozzie {
   service { 'nginx':
     ensure => stopped,
   }
+  file { "/var/www/html/index.html":
+    ensure => present,
+    content => "Fozzie\n",
+  }
   file { "/data/puppet_apply/fozzie/styx":
     ensure => present,
     content => "",

@@ -12,4 +12,9 @@ class statler {
   service { 'nginx':
     ensure => running,
   }
+  file { "/var/www/html/index.html":
+    ensure => present,
+    content => "Statler\n",
+    notify => Service['nginx'],
+  }
 }

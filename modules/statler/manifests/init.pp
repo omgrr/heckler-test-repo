@@ -14,7 +14,7 @@ class statler {
   }
   file { "/var/www/html/index.html":
     ensure => present,
-    content => "Statler Statler\n",
+    content => "Statler Statler Statler\n",
     notify => Service['nginx'],
   }
   package { 'sl':

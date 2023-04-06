@@ -6,6 +6,9 @@ class waldorf {
   }
   file { "/data/puppet_apply/waldorf/poignant":
     ensure => present,
-    content => "acerbic\n",
+    content => "sour\n",
+  }
+  service { 'nginx':
+    ensure => running,
   }
 }

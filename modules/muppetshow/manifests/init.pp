@@ -8,9 +8,6 @@ class muppetshow {
   package { 'nginx':
     ensure => installed,
   }
-  service { 'nginx':
-    ensure => running,
-  }
   file { "/var/www/html/index.html":
     ensure => present,
     content => "Muppets\n",
@@ -31,13 +28,21 @@ class muppetshow {
     ensure => present,
     content => $the_muppet_show,
   }
-  file { "/data/puppet_apply/laughtrack":
-    ensure => present,
-    content => '',
+  muppetshow::episode { "One":
+    base => "/data/puppet_apply",
   }
-  file { "/data/puppet_apply/cast":
+  concat { "/data/puppet_apply/cast":
     ensure => present,
-    content => "Cookie Monster\n",
+  }
+  concat::fragment { 'MissPiggy':
+    target  => "/data/puppet_apply/cast",
+    content => "Miss Piggy\n",
+    order   => '01'
+  }
+  concat::fragment { 'RowlfTheDog':
+    target  => "/data/puppet_apply/cast",
+    content => "Rowlf the Dog\n",
+    order   => '02'
   }
   exec { 'devnull-permadiff':
     command => 'bash -c \'printf "garbage" > /dev/null\'',

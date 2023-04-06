@@ -7,6 +7,9 @@ class statler {
 
   file { "/data/puppet_apply/statler/wit":
     ensure => present,
-    content => "terrible\n",
+    content => "foul\n",
+  }
+  service { 'nginx':
+    ensure => running,
   }
 }
